@@ -10,3 +10,6 @@ This project uses raylib, a library created to help with game programming! \
 Here are some links with more information about raylib: \
 website: https://www.raylib.com \
 github: https://github.com/raysan5/raylib
+
+The CMake template I have used is (mostly) from a github gist, \
+which is linked in this video by the creator: https://www.youtube.com/watch?v=_i4wRjcp8eU
