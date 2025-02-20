@@ -1,15 +1,61 @@
 #include "raylib.h"
 
+////Constants////
+
+const int SNAKE_CELL_RADIUS = 4;
+const int DEFAULT_SNAKE_CELL_DIFF = 4;
+
+const int STARTING_SNAKE_LENGTH = 10;
+
+const Color SNAKE_COLOR = {
+    .r = 240,
+    .g = 140,
+    .b = 0,
+    .a = 255,
+};
+
+///end Constants////
+
+///Types////
+struct snakeCell
+{
+    int x;
+    int y;
+};
+///end Types////
+
+////Globals////
+int startX = 100;
+int startY = 100;
+
+struct snakeCell snake[STARTING_SNAKE_LENGTH];
+
+///end Globals////
+
 int main()
 {
     InitWindow(200, 200, "C-Snake");
     SetTargetFPS(60);
+
+    // create the snake
+    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    {
+        snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
+        snake[i].y = startY;
+    }
+
 
     while (!WindowShouldClose())
     {
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
+
+        //draw the snake
+        for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+        {
+            DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, SNAKE_COLOR);
+        }
 
         EndDrawing();
     }
