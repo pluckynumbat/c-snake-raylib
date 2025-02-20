@@ -1,2 +1,5 @@
 # ignore the build folder we use for CMake
 build
+
+# ignore the mac ds store file
+**/.DS_Store
