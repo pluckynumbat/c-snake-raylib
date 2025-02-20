@@ -24,6 +24,13 @@ struct snakeCell
 };
 ///end Types////
 
+////Globals////
+int startX = 100;
+int startY = 100;
+
+struct snakeCell snake[STARTING_SNAKE_LENGTH];
+
+///end Globals////
 
 int main()
 {
