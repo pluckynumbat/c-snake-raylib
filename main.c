@@ -37,6 +37,14 @@ int main()
     InitWindow(200, 200, "C-Snake");
     SetTargetFPS(60);
 
+    // create the snake
+    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    {
+        snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
+        snake[i].y = startY;
+    }
+
+
     while (!WindowShouldClose())
     {
         BeginDrawing();
