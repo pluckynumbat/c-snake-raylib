@@ -51,6 +51,12 @@ int main()
 
         ClearBackground(RAYWHITE);
 
+        //draw the snake
+        for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+        {
+            DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, SNAKE_COLOR);
+        }
+
         EndDrawing();
     }
 
