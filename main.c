@@ -16,6 +16,15 @@ const Color SNAKE_COLOR = {
 
 ///end Constants////
 
+///Types////
+struct snakeCell
+{
+    int x;
+    int y;
+};
+///end Types////
+
+
 int main()
 {
     InitWindow(200, 200, "C-Snake");
