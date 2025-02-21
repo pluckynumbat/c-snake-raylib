@@ -77,6 +77,9 @@ int main()
             DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, SNAKE_COLOR);
         }
 
+        //draw the fruit
+        DrawCircle(fruitX, fruitY, FRUIT_RADIUS, FRUIT_COLOR_0);
+
         EndDrawing();
     }
 
