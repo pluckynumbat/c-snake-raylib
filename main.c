@@ -11,9 +11,18 @@ const int DEFAULT_SNAKE_CELL_DIFF = 4;
 
 const int STARTING_SNAKE_LENGTH = 10;
 
+const int FRUIT_RADIUS = 4;
+
 const Color SNAKE_COLOR = {
     .r = 240,
     .g = 140,
+    .b = 0,
+    .a = 255,
+};
+
+const Color FRUIT_COLOR_0 = {
+    .r = 220,
+    .g = 20,
     .b = 0,
     .a = 255,
 };
