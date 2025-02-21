@@ -28,8 +28,8 @@ struct snakeCell
 ///end Types////
 
 ////Globals////
-int startX = 100;
-int startY = 100;
+int startX = WINDOW_WIDTH / 2;
+int startY = WINDOW_HEIGHT / 2;
 
 struct snakeCell snake[STARTING_SNAKE_LENGTH];
 
