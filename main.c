@@ -43,6 +43,9 @@ int startY = WINDOW_HEIGHT / 2;
 
 struct snakeCell snake[STARTING_SNAKE_LENGTH];
 
+int fruitX = 0;
+int fruitY = 0;
+
 ///end Globals////
 
 int main()
@@ -56,6 +59,10 @@ int main()
         snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
         snake[i].y = startY;
     }
+
+    //create the fruit
+    fruitX = GetRandomValue(0, WINDOW_WIDTH);
+    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
 
 
     while (!WindowShouldClose())
