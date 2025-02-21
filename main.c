@@ -2,6 +2,9 @@
 
 ////Constants////
 
+const int WINDOW_WIDTH = 200;
+const int WINDOW_HEIGHT = 200;
+
 const int SNAKE_CELL_RADIUS = 4;
 const int DEFAULT_SNAKE_CELL_DIFF = 4;
 
@@ -34,7 +37,7 @@ struct snakeCell snake[STARTING_SNAKE_LENGTH];
 
 int main()
 {
-    InitWindow(200, 200, "C-Snake");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "C-Snake");
     SetTargetFPS(60);
 
     // create the snake
