@@ -93,6 +93,9 @@ int main()
 
         ClearBackground(RAYWHITE);
 
+        //move the snake
+        moveSnake(snake, 4);
+
         //draw the snake
         for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
         {
