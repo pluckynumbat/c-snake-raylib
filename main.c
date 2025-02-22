@@ -57,6 +57,18 @@ int fruitY = 0;
 
 ///end Globals////
 
+void moveSnake(struct snakeCell* snake, int speed)
+{
+    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    {
+        snake[i].x += speed;
+        if (snake[i].x > WINDOW_WIDTH)
+        {
+            snake[i].x = 0;
+        }
+    }
+}
+
 int main()
 {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
