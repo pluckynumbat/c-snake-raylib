@@ -42,6 +42,7 @@ struct snakeCell
 {
     int x;
     int y;
+    enum direction dir;
 };
 ///end Types////
 
