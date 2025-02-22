@@ -8,6 +8,7 @@ const char* GAME_TITLE = "C-Snake";
 
 const int SNAKE_CELL_RADIUS = 4;
 const int DEFAULT_SNAKE_CELL_DIFF = 4;
+const int DEFAULT_SPEED = 4;
 
 const int STARTING_SNAKE_LENGTH = 10;
 
@@ -30,10 +31,19 @@ const Color FRUIT_COLOR_0 = {
 ///end Constants////
 
 ///Types////
+enum direction
+{
+    north,
+    south,
+    east,
+    west,
+};
+
 struct snakeCell
 {
     int x;
     int y;
+    enum direction dir;
 };
 ///end Types////
 
@@ -48,6 +58,18 @@ int fruitY = 0;
 
 ///end Globals////
 
+void moveSnake(struct snakeCell* snake, int speed)
+{
+    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    {
+        snake[i].x += speed;
+        if (snake[i].x > WINDOW_WIDTH)
+        {
+            snake[i].x = 0;
+        }
+    }
+}
+
 int main()
 {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
@@ -56,6 +78,7 @@ int main()
     // create the snake
     for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
     {
+        snake[i].dir = east;
         snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
         snake[i].y = startY;
     }
@@ -70,6 +93,9 @@ int main()
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
+
+        //move the snake
+        moveSnake(snake, DEFAULT_SPEED);
 
         //draw the snake
         for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
