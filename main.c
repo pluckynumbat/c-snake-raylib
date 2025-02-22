@@ -30,6 +30,14 @@ const Color FRUIT_COLOR_0 = {
 ///end Constants////
 
 ///Types////
+enum direction
+{
+    north,
+    south,
+    east,
+    west,
+};
+
 struct snakeCell
 {
     int x;
