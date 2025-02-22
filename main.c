@@ -65,6 +65,7 @@ int main()
     // create the snake
     for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
     {
+        snake[i].dir = east;
         snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
         snake[i].y = startY;
     }
