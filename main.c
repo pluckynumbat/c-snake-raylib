@@ -8,6 +8,7 @@ const char* GAME_TITLE = "C-Snake";
 
 const int SNAKE_CELL_RADIUS = 4;
 const int DEFAULT_SNAKE_CELL_DIFF = 4;
+const int DEFAULT_SPEED = 4;
 
 const int STARTING_SNAKE_LENGTH = 10;
 
@@ -94,7 +95,7 @@ int main()
         ClearBackground(RAYWHITE);
 
         //move the snake
-        moveSnake(snake, 4);
+        moveSnake(snake, DEFAULT_SPEED);
 
         //draw the snake
         for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
