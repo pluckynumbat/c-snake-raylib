@@ -94,6 +94,11 @@ void drawSnake(struct snakeCell* snake, int snakeLength)
     }
 }
 
+void drawFruit(int x, int y)
+{
+    DrawCircle(x, y, FRUIT_RADIUS, FRUIT_COLOR_0);
+}
+
 int main()
 {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
@@ -115,7 +120,7 @@ int main()
         drawSnake(snake, STARTING_SNAKE_LENGTH);
 
         //draw the fruit
-        DrawCircle(fruitX, fruitY, FRUIT_RADIUS, FRUIT_COLOR_0);
+        drawFruit(fruitX, fruitY);
 
         EndDrawing();
     }
