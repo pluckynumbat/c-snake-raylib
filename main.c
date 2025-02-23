@@ -85,18 +85,18 @@ void moveSnake(struct snakeCell* snake, int speed)
     }
 }
 
-void drawSnake(struct snakeCell* snake, int snakeLength)
+void drawSnake(struct snakeCell* snake, int snakeLength, Color color)
 {
     //draw the snake
     for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
     {
-        DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, SNAKE_COLOR);
+        DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, color);
     }
 }
 
-void drawFruit(int x, int y)
+void drawFruit(int x, int y, Color color)
 {
-    DrawCircle(x, y, FRUIT_RADIUS, FRUIT_COLOR_0);
+    DrawCircle(x, y, FRUIT_RADIUS, color);
 }
 
 int main()
@@ -117,10 +117,10 @@ int main()
         moveSnake(snake, DEFAULT_SPEED);
 
         //draw the snake
-        drawSnake(snake, STARTING_SNAKE_LENGTH);
+        drawSnake(snake, STARTING_SNAKE_LENGTH, SNAKE_COLOR);
 
         //draw the fruit
-        drawFruit(fruitX, fruitY);
+        drawFruit(fruitX, fruitY, FRUIT_COLOR_0);
 
         EndDrawing();
     }
