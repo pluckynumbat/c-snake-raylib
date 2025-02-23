@@ -58,6 +58,21 @@ int fruitY = 0;
 
 ///end Globals////
 
+void initializeGame()
+{
+    // create the snake
+    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    {
+        snake[i].dir = east;
+        snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
+        snake[i].y = startY;
+    }
+
+    //create the fruit
+    fruitX = GetRandomValue(0, WINDOW_WIDTH);
+    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
+}
+
 void moveSnake(struct snakeCell* snake, int speed)
 {
     for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
@@ -75,17 +90,7 @@ int main()
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
     SetTargetFPS(60);
 
-    // create the snake
-    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
-    {
-        snake[i].dir = east;
-        snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
-        snake[i].y = startY;
-    }
-
-    //create the fruit
-    fruitX = GetRandomValue(0, WINDOW_WIDTH);
-    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
+    initializeGame();
 
 
     while (!WindowShouldClose())
