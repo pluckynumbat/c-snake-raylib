@@ -58,6 +58,21 @@ int fruitY = 0;
 
 ///end Globals////
 
+void initializeGame()
+{
+    // create the snake
+    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    {
+        snake[i].dir = east;
+        snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
+        snake[i].y = startY;
+    }
+
+    //create the fruit
+    fruitX = GetRandomValue(0, WINDOW_WIDTH);
+    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
+}
+
 void moveSnake(struct snakeCell* snake, int speed)
 {
     for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
@@ -70,22 +85,26 @@ void moveSnake(struct snakeCell* snake, int speed)
     }
 }
 
+void drawSnake(struct snakeCell* snake, int snakeLength, Color color)
+{
+    //draw the snake
+    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    {
+        DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, color);
+    }
+}
+
+void drawFruit(int x, int y, Color color)
+{
+    DrawCircle(x, y, FRUIT_RADIUS, color);
+}
+
 int main()
 {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
     SetTargetFPS(60);
 
-    // create the snake
-    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
-    {
-        snake[i].dir = east;
-        snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
-        snake[i].y = startY;
-    }
-
-    //create the fruit
-    fruitX = GetRandomValue(0, WINDOW_WIDTH);
-    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
+    initializeGame();
 
 
     while (!WindowShouldClose())
@@ -98,13 +117,10 @@ int main()
         moveSnake(snake, DEFAULT_SPEED);
 
         //draw the snake
-        for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
-        {
-            DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, SNAKE_COLOR);
-        }
+        drawSnake(snake, STARTING_SNAKE_LENGTH, SNAKE_COLOR);
 
         //draw the fruit
-        DrawCircle(fruitX, fruitY, FRUIT_RADIUS, FRUIT_COLOR_0);
+        drawFruit(fruitX, fruitY, FRUIT_COLOR_0);
 
         EndDrawing();
     }
