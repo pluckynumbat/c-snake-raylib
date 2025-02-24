@@ -106,6 +106,11 @@ void moveSnake(struct snakeCell* snake, int speed)
             }
         }
     }
+
+    //propagate the direction throughout the snake
+    for (int i = STARTING_SNAKE_LENGTH - 1; i >= 1; i--)
+    {
+        snake[i].dir = snake[i - 1].dir;
     }
 }
 
