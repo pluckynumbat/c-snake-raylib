@@ -73,6 +73,17 @@ void initializeGame()
     fruitY = GetRandomValue(0, WINDOW_HEIGHT);
 }
 
+void acceptInput()
+{
+    if (IsKeyPressed(KEY_W))
+    {
+        if (snake[0].dir != south && snake[0].dir != north)
+        {
+            snake[0].dir = north;
+        }
+    }
+}
+
 void moveSnake(struct snakeCell* snake, int speed)
 {
     for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
