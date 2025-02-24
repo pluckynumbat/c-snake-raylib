@@ -73,15 +73,44 @@ void initializeGame()
     fruitY = GetRandomValue(0, WINDOW_HEIGHT);
 }
 
+void acceptInput()
+{
+    if (IsKeyPressed(KEY_W))
+    {
+        if (snake[0].dir != south && snake[0].dir != north)
+        {
+            snake[0].dir = north;
+        }
+    }
+}
+
 void moveSnake(struct snakeCell* snake, int speed)
 {
     for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
     {
-        snake[i].x += speed;
-        if (snake[i].x > WINDOW_WIDTH)
+        switch (snake[i].dir)
         {
-            snake[i].x = 0;
+        case north:
+            snake[i].y -= speed;
+            if (snake[i].y < 0)
+            {
+                snake[i].y = WINDOW_HEIGHT;
+            }
+            break;
+
+        case east:
+            snake[i].x += speed;
+            if (snake[i].x > WINDOW_WIDTH)
+            {
+                snake[i].x = 0;
+            }
         }
+    }
+
+    //propagate the direction throughout the snake
+    for (int i = STARTING_SNAKE_LENGTH - 1; i >= 1; i--)
+    {
+        snake[i].dir = snake[i - 1].dir;
     }
 }
 
@@ -112,6 +141,9 @@ int main()
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
+
+        //accept input
+        acceptInput();
 
         //move the snake
         moveSnake(snake, DEFAULT_SPEED);
