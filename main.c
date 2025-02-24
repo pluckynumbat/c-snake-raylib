@@ -124,6 +124,9 @@ int main()
 
         ClearBackground(RAYWHITE);
 
+        //accept input
+        acceptInput();
+
         //move the snake
         moveSnake(snake, DEFAULT_SPEED);
 
