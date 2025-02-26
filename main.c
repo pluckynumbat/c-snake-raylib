@@ -56,6 +56,7 @@ struct snakeCell snake[STARTING_SNAKE_LENGTH];
 int fruitX = 0;
 int fruitY = 0;
 
+bool paused = false;
 ///end Globals////
 
 void initializeGame()
@@ -82,6 +83,35 @@ void acceptInput()
             snake[0].dir = north;
         }
     }
+
+    if (IsKeyPressed(KEY_S))
+    {
+        if (snake[0].dir != south && snake[0].dir != north)
+        {
+            snake[0].dir = south;
+        }
+    }
+
+    if (IsKeyPressed(KEY_A))
+    {
+        if (snake[0].dir != east && snake[0].dir != west)
+        {
+            snake[0].dir = west;
+        }
+    }
+
+    if (IsKeyPressed(KEY_D))
+    {
+        if (snake[0].dir != east && snake[0].dir != west)
+        {
+            snake[0].dir = east;
+        }
+    }
+
+    if (IsKeyPressed(KEY_SPACE))
+    {
+        paused = !paused;
+    }
 }
 
 void moveSnake(struct snakeCell* snake, int speed)
@@ -104,6 +134,23 @@ void moveSnake(struct snakeCell* snake, int speed)
             {
                 snake[i].x = 0;
             }
+            break;
+
+        case south:
+            snake[i].y += speed;
+            if (snake[i].y > WINDOW_HEIGHT)
+            {
+                snake[i].y = 0;
+            }
+            break;
+
+        case west:
+            snake[i].x -= speed;
+            if (snake[i].x < 0)
+            {
+                snake[i].x = WINDOW_WIDTH;
+            }
+            break;
         }
     }
 
@@ -146,7 +193,10 @@ int main()
         acceptInput();
 
         //move the snake
-        moveSnake(snake, DEFAULT_SPEED);
+        if (!paused)
+        {
+            moveSnake(snake, DEFAULT_SPEED);
+        }
 
         //draw the snake
         drawSnake(snake, STARTING_SNAKE_LENGTH, SNAKE_COLOR);
