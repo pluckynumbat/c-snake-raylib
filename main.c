@@ -56,6 +56,7 @@ struct snakeCell snake[STARTING_SNAKE_LENGTH];
 int fruitX = 0;
 int fruitY = 0;
 
+bool paused = false;
 ///end Globals////
 
 void initializeGame()
@@ -105,6 +106,11 @@ void acceptInput()
         {
             snake[0].dir = east;
         }
+    }
+
+    if (IsKeyPressed(KEY_SPACE))
+    {
+        paused = !paused;
     }
 }
 
