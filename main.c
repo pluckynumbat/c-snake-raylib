@@ -128,6 +128,23 @@ void moveSnake(struct snakeCell* snake, int speed)
             {
                 snake[i].x = 0;
             }
+            break;
+
+        case south:
+            snake[i].y += speed;
+            if (snake[i].y > WINDOW_HEIGHT)
+            {
+                snake[i].y = 0;
+            }
+            break;
+
+        case west:
+            snake[i].x -= speed;
+            if (snake[i].x < 0)
+            {
+                snake[i].x = WINDOW_WIDTH;
+            }
+            break;
         }
     }
 
