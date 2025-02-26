@@ -82,6 +82,30 @@ void acceptInput()
             snake[0].dir = north;
         }
     }
+
+    if (IsKeyPressed(KEY_S))
+    {
+        if (snake[0].dir != south && snake[0].dir != north)
+        {
+            snake[0].dir = south;
+        }
+    }
+
+    if (IsKeyPressed(KEY_A))
+    {
+        if (snake[0].dir != east && snake[0].dir != west)
+        {
+            snake[0].dir = west;
+        }
+    }
+
+    if (IsKeyPressed(KEY_D))
+    {
+        if (snake[0].dir != east && snake[0].dir != west)
+        {
+            snake[0].dir = east;
+        }
+    }
 }
 
 void moveSnake(struct snakeCell* snake, int speed)
