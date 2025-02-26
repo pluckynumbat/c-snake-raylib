@@ -193,7 +193,10 @@ int main()
         acceptInput();
 
         //move the snake
-        moveSnake(snake, DEFAULT_SPEED);
+        if (!paused)
+        {
+            moveSnake(snake, DEFAULT_SPEED);
+        }
 
         //draw the snake
         drawSnake(snake, STARTING_SNAKE_LENGTH, SNAKE_COLOR);
