@@ -59,6 +59,12 @@ int fruitY = 0;
 bool paused = false;
 ///end Globals////
 
+void spawnNewFruit()
+{
+    fruitX = GetRandomValue(0, WINDOW_WIDTH);
+    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
+}
+
 void initializeGame()
 {
     // create the snake
@@ -70,8 +76,7 @@ void initializeGame()
     }
 
     //create the fruit
-    fruitX = GetRandomValue(0, WINDOW_WIDTH);
-    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
+    spawnNewFruit();
 }
 
 void acceptInput()
