@@ -59,6 +59,12 @@ int fruitY = 0;
 bool paused = false;
 ///end Globals////
 
+void spawnNewFruit()
+{
+    fruitX = GetRandomValue(0, WINDOW_WIDTH);
+    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
+}
+
 void initializeGame()
 {
     // create the snake
@@ -70,8 +76,7 @@ void initializeGame()
     }
 
     //create the fruit
-    fruitX = GetRandomValue(0, WINDOW_WIDTH);
-    fruitY = GetRandomValue(0, WINDOW_HEIGHT);
+    spawnNewFruit();
 }
 
 void acceptInput()
@@ -175,6 +180,14 @@ void drawFruit(int x, int y, Color color)
     DrawCircle(x, y, FRUIT_RADIUS, color);
 }
 
+bool doesSnakeEatFruit(int snakeX, int snakeY, int fruitX, int fruitY, int fruitRadius)
+{
+    int squareDistance = ((snakeX - fruitX) * (snakeX - fruitX)) + ((snakeY - fruitY) * (snakeY - fruitY));
+    int radiusSumSquared = (SNAKE_CELL_RADIUS * SNAKE_CELL_RADIUS) + (2 * SNAKE_CELL_RADIUS * fruitRadius) + (fruitRadius * fruitRadius);
+    return squareDistance < radiusSumSquared;
+}
+
+
 int main()
 {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
@@ -196,6 +209,12 @@ int main()
         if (!paused)
         {
             moveSnake(snake, DEFAULT_SPEED);
+        }
+
+        //check if the snake eats the fruit
+        if (doesSnakeEatFruit(snake[0].x, snake[0].y, fruitX, fruitY, FRUIT_RADIUS)) 
+        {
+            spawnNewFruit();
         }
 
         //draw the snake
