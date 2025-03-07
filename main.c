@@ -211,6 +211,12 @@ int main()
             moveSnake(snake, DEFAULT_SPEED);
         }
 
+        //check if the snake eats the fruit
+        if (doesSnakeEatFruit(snake[0].x, snake[0].y, fruitX, fruitY, FRUIT_RADIUS)) 
+        {
+            spawnNewFruit();
+        }
+
         //draw the snake
         drawSnake(snake, STARTING_SNAKE_LENGTH, SNAKE_COLOR);
 
