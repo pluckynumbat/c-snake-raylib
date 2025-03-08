@@ -11,6 +11,7 @@ const int DEFAULT_SNAKE_CELL_DIFF = 4;
 const int DEFAULT_SPEED = 4;
 
 const int STARTING_SNAKE_LENGTH = 10;
+const int MAX_SNAKE_LENGTH = 500;
 
 const int FRUIT_RADIUS = 4;
 
@@ -44,6 +45,7 @@ struct snakeCell
     int x;
     int y;
     enum direction dir;
+    bool isOn;
 };
 ///end Types////
 
@@ -51,7 +53,8 @@ struct snakeCell
 int startX = WINDOW_WIDTH / 2;
 int startY = WINDOW_HEIGHT / 2;
 
-struct snakeCell snake[STARTING_SNAKE_LENGTH];
+struct snakeCell snake[MAX_SNAKE_LENGTH];
+int snakeLength = 0;
 
 int fruitX = 0;
 int fruitY = 0;
@@ -67,12 +70,16 @@ void spawnNewFruit()
 
 void initializeGame()
 {
+    //set snake length
+    snakeLength = STARTING_SNAKE_LENGTH;
+
     // create the snake
-    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    for (int i = 0; i < MAX_SNAKE_LENGTH; i++)
     {
         snake[i].dir = east;
         snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
         snake[i].y = startY;
+        snake[i].isOn = i <= snakeLength;
     }
 
     //create the fruit
@@ -121,7 +128,7 @@ void acceptInput()
 
 void moveSnake(struct snakeCell* snake, int speed)
 {
-    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    for (int i = 0; i < MAX_SNAKE_LENGTH; i++)
     {
         switch (snake[i].dir)
         {
@@ -160,7 +167,7 @@ void moveSnake(struct snakeCell* snake, int speed)
     }
 
     //propagate the direction throughout the snake
-    for (int i = STARTING_SNAKE_LENGTH - 1; i >= 1; i--)
+    for (int i = MAX_SNAKE_LENGTH - 1; i >= 1; i--)
     {
         snake[i].dir = snake[i - 1].dir;
     }
@@ -169,7 +176,7 @@ void moveSnake(struct snakeCell* snake, int speed)
 void drawSnake(struct snakeCell* snake, int snakeLength, Color color)
 {
     //draw the snake
-    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    for (int i = 0; i < snakeLength; i++)
     {
         DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, color);
     }
@@ -185,6 +192,12 @@ bool doesSnakeEatFruit(int snakeX, int snakeY, int fruitX, int fruitY, int fruit
     int squareDistance = ((snakeX - fruitX) * (snakeX - fruitX)) + ((snakeY - fruitY) * (snakeY - fruitY));
     int radiusSumSquared = (SNAKE_CELL_RADIUS * SNAKE_CELL_RADIUS) + (2 * SNAKE_CELL_RADIUS * fruitRadius) + (fruitRadius * fruitRadius);
     return squareDistance < radiusSumSquared;
+}
+
+void increaseSnakeLength()
+{
+    snakeLength++;
+    snake[snakeLength - 1].isOn = true;
 }
 
 
@@ -214,11 +227,12 @@ int main()
         //check if the snake eats the fruit
         if (doesSnakeEatFruit(snake[0].x, snake[0].y, fruitX, fruitY, FRUIT_RADIUS)) 
         {
+            increaseSnakeLength();
             spawnNewFruit();
         }
 
         //draw the snake
-        drawSnake(snake, STARTING_SNAKE_LENGTH, SNAKE_COLOR);
+        drawSnake(snake, snakeLength, SNAKE_COLOR);
 
         //draw the fruit
         drawFruit(fruitX, fruitY, FRUIT_COLOR_0);
