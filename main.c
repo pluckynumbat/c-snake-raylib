@@ -176,7 +176,7 @@ void moveSnake(struct snakeCell* snake, int speed)
 void drawSnake(struct snakeCell* snake, int snakeLength, Color color)
 {
     //draw the snake
-    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    for (int i = 0; i < snakeLength; i++)
     {
         DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, color);
     }
@@ -225,7 +225,7 @@ int main()
         }
 
         //draw the snake
-        drawSnake(snake, STARTING_SNAKE_LENGTH, SNAKE_COLOR);
+        drawSnake(snake, snakeLength, SNAKE_COLOR);
 
         //draw the fruit
         drawFruit(fruitX, fruitY, FRUIT_COLOR_0);
