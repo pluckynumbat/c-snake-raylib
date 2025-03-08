@@ -11,6 +11,7 @@ const int DEFAULT_SNAKE_CELL_DIFF = 4;
 const int DEFAULT_SPEED = 4;
 
 const int STARTING_SNAKE_LENGTH = 10;
+const int MAX_SNAKE_LENGTH = 500;
 
 const int FRUIT_RADIUS = 4;
 
@@ -51,7 +52,8 @@ struct snakeCell
 int startX = WINDOW_WIDTH / 2;
 int startY = WINDOW_HEIGHT / 2;
 
-struct snakeCell snake[STARTING_SNAKE_LENGTH];
+struct snakeCell snake[MAX_SNAKE_LENGTH];
+int snakeLength = 0;
 
 int fruitX = 0;
 int fruitY = 0;
@@ -67,6 +69,9 @@ void spawnNewFruit()
 
 void initializeGame()
 {
+    //set snake length
+    snakeLength = STARTING_SNAKE_LENGTH;
+
     // create the snake
     for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
     {
