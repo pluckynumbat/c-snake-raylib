@@ -194,6 +194,12 @@ bool doesSnakeEatFruit(int snakeX, int snakeY, int fruitX, int fruitY, int fruit
     return squareDistance < radiusSumSquared;
 }
 
+void increaseSnakeLength()
+{
+    snakeLength++;
+    snake[snakeLength - 1].isOn = true;
+}
+
 
 int main()
 {
@@ -221,6 +227,7 @@ int main()
         //check if the snake eats the fruit
         if (doesSnakeEatFruit(snake[0].x, snake[0].y, fruitX, fruitY, FRUIT_RADIUS)) 
         {
+            increaseSnakeLength();
             spawnNewFruit();
         }
 
