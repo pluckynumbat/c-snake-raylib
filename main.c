@@ -45,6 +45,7 @@ struct snakeCell
     int x;
     int y;
     enum direction dir;
+    bool isOn;
 };
 ///end Types////
 
@@ -73,11 +74,12 @@ void initializeGame()
     snakeLength = STARTING_SNAKE_LENGTH;
 
     // create the snake
-    for (int i = 0; i < STARTING_SNAKE_LENGTH; i++)
+    for (int i = 0; i < MAX_SNAKE_LENGTH; i++)
     {
         snake[i].dir = east;
         snake[i].x = startX - (i * (DEFAULT_SNAKE_CELL_DIFF));
         snake[i].y = startY;
+        snake[i].isOn = i <= snakeLength;
     }
 
     //create the fruit
