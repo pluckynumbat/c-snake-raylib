@@ -237,7 +237,7 @@ int main()
         acceptInput();
 
         //move the snake
-        if (!paused)
+        if (!paused && !ended)
         {
             moveSnake(snake, DEFAULT_SPEED);
         }
