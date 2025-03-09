@@ -85,6 +85,10 @@ void initializeGame()
 
     //create the fruit
     spawnNewFruit();
+
+    //reset paused and ended states
+    paused = false;
+    ended = false;
 }
 
 void acceptInput()
