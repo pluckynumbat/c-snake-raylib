@@ -201,6 +201,23 @@ void increaseSnakeLength()
 }
 
 
+bool doesSnakeDie(struct snakeCell* snake, int snakeLength)
+{
+    int frontX = snake[0].x;
+    int frontY = snake[0].y;
+
+    for (int i = 1; i < snakeLength; i++)
+    {
+        if (snake[i].x == frontX && snake[i].y == frontY)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
 int main()
 {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
