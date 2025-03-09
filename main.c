@@ -124,6 +124,12 @@ void acceptInput()
     if (IsKeyPressed(KEY_SPACE))
     {
         paused = !paused;
+
+        //restart
+        if (ended)
+        {
+            initializeGame();
+        }
     }
 }
 
