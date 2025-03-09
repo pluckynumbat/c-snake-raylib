@@ -60,6 +60,7 @@ int fruitX = 0;
 int fruitY = 0;
 
 bool paused = false;
+bool ended = false;
 ///end Globals////
 
 void spawnNewFruit()
@@ -84,6 +85,10 @@ void initializeGame()
 
     //create the fruit
     spawnNewFruit();
+
+    //reset paused and ended states
+    paused = false;
+    ended = false;
 }
 
 void acceptInput()
@@ -123,6 +128,12 @@ void acceptInput()
     if (IsKeyPressed(KEY_SPACE))
     {
         paused = !paused;
+
+        //restart
+        if (ended)
+        {
+            initializeGame();
+        }
     }
 }
 
@@ -201,6 +212,23 @@ void increaseSnakeLength()
 }
 
 
+bool doesSnakeDie(struct snakeCell* snake, int snakeLength)
+{
+    int frontX = snake[0].x;
+    int frontY = snake[0].y;
+
+    for (int i = 1; i < snakeLength; i++)
+    {
+        if (snake[i].x == frontX && snake[i].y == frontY)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
 int main()
 {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
@@ -219,7 +247,7 @@ int main()
         acceptInput();
 
         //move the snake
-        if (!paused)
+        if (!paused && !ended)
         {
             moveSnake(snake, DEFAULT_SPEED);
         }
@@ -229,6 +257,12 @@ int main()
         {
             increaseSnakeLength();
             spawnNewFruit();
+        }
+
+        //check if the snake dies
+        if (doesSnakeDie(snake, snakeLength))
+        {
+            ended = true;
         }
 
         //draw the snake
