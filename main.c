@@ -60,6 +60,7 @@ int fruitX = 0;
 int fruitY = 0;
 
 bool paused = false;
+bool ended = false;
 ///end Globals////
 
 void spawnNewFruit()
@@ -246,6 +247,12 @@ int main()
         {
             increaseSnakeLength();
             spawnNewFruit();
+        }
+
+        //check if the snake dies
+        if (doesSnakeDie(snake, snakeLength))
+        {
+            ended = true;
         }
 
         //draw the snake
