@@ -116,7 +116,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_A))
+    if (IsKeyPressed(KEY_A) && frameStartDirection != east)
     {
         if (snake[0].dir != east && snake[0].dir != west)
         {
@@ -124,7 +124,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_D))
+    if (IsKeyPressed(KEY_D) && frameStartDirection != west)
     {
         if (snake[0].dir != east && snake[0].dir != west)
         {
