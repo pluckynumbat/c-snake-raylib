@@ -61,6 +61,8 @@ int fruitY = 0;
 
 bool paused = false;
 bool ended = false;
+
+enum direction frameStartDirection;
 ///end Globals////
 
 void spawnNewFruit()
@@ -91,6 +93,11 @@ void initializeGame()
     ended = false;
 }
 
+void cacheFrameStartSnakeDirection()
+{
+    frameStartDirection = snake[0].dir;
+}
+
 void acceptInput()
 {
     if (IsKeyPressed(KEY_W))
@@ -109,7 +116,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_A))
+    if (IsKeyPressed(KEY_A) && frameStartDirection != east)
     {
         if (snake[0].dir != east && snake[0].dir != west)
         {
@@ -117,7 +124,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_D))
+    if (IsKeyPressed(KEY_D) && frameStartDirection != west)
     {
         if (snake[0].dir != east && snake[0].dir != west)
         {
@@ -242,6 +249,9 @@ int main()
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
+
+        //cache snake's direction at the beginning of frame
+        cacheFrameStartSnakeDirection();
 
         //accept input
         acceptInput();
