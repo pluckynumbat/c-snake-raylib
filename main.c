@@ -61,6 +61,8 @@ int fruitY = 0;
 
 bool paused = false;
 bool ended = false;
+
+enum direction frameStartDirection;
 ///end Globals////
 
 void spawnNewFruit()
