@@ -250,6 +250,9 @@ int main()
 
         ClearBackground(RAYWHITE);
 
+        //cache snake's direction at the beginning of frame
+        cacheFrameStartSnakeDirection();
+
         //accept input
         acceptInput();
 
