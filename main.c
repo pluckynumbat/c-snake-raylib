@@ -93,6 +93,11 @@ void initializeGame()
     ended = false;
 }
 
+void cacheFrameStartSnakeDirection()
+{
+    frameStartDirection = snake[0].dir;
+}
+
 void acceptInput()
 {
     if (IsKeyPressed(KEY_W))
