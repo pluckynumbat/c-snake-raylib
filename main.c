@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include <stdio.h>
 
 ////Constants////
 
@@ -255,6 +256,11 @@ bool doesSnakeDie(struct snakeCell* snake, int snakeLength)
     return false;
 }
 
+void drawScore(int score)
+{
+    snprintf(scoreDisplay, MAX_SCORE_DIGITS + 1, "%d", score);
+    DrawText(scoreDisplay, (WINDOW_WIDTH * 0.25), (WINDOW_HEIGHT * 0.25), SCORE_FONT_SIZE, SCORE_FONT_COLOR);
+}
 
 
 int main()
@@ -296,6 +302,10 @@ int main()
         {
             ended = true;
         }
+
+        //draw the score
+        drawScore(score);
+
 
         //draw the snake
         drawSnake(snake, snakeLength, SNAKE_COLOR);
