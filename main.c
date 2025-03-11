@@ -16,6 +16,14 @@ const int MAX_SNAKE_LENGTH = 500;
 const int FRUIT_RADIUS = 4;
 const int FRUIT_SCORE = 1;
 
+const int MAX_SCORE_DIGITS = 3;
+const int SCORE_FONT_SIZE = 100;
+const Color SCORE_FONT_COLOR= {
+    .r = 140,
+    .g = 140,
+    .b = 140,
+    .a = 100,
+};
 
 const Color SNAKE_COLOR = {
     .r = 240,
@@ -67,6 +75,7 @@ bool ended = false;
 enum direction frameStartDirection;
 
 int score = 0;
+char scoreDisplay[MAX_SCORE_DIGITS + 1];
 ///end Globals////
 
 void spawnNewFruit()
