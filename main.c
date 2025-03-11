@@ -14,6 +14,8 @@ const int STARTING_SNAKE_LENGTH = 10;
 const int MAX_SNAKE_LENGTH = 500;
 
 const int FRUIT_RADIUS = 4;
+const int FRUIT_SCORE = 1;
+
 
 const Color SNAKE_COLOR = {
     .r = 240,
@@ -223,6 +225,11 @@ void increaseSnakeLength()
     snake[snakeLength - 1].isOn = true;
 }
 
+void increaseScore(int scoreAdded)
+{
+    score += scoreAdded;
+}
+
 
 bool doesSnakeDie(struct snakeCell* snake, int snakeLength)
 {
@@ -271,6 +278,7 @@ int main()
         if (doesSnakeEatFruit(snake[0].x, snake[0].y, fruitX, fruitY, FRUIT_RADIUS)) 
         {
             increaseSnakeLength();
+            increaseScore(FRUIT_SCORE);
             spawnNewFruit();
         }
 
