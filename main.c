@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include <stdio.h>
 
 ////Constants////
 
@@ -14,6 +15,16 @@ const int STARTING_SNAKE_LENGTH = 10;
 const int MAX_SNAKE_LENGTH = 500;
 
 const int FRUIT_RADIUS = 4;
+const int FRUIT_SCORE = 1;
+
+const int MAX_SCORE_DIGITS = 3;
+const int SCORE_FONT_SIZE = 100;
+const Color SCORE_FONT_COLOR= {
+    .r = 140,
+    .g = 140,
+    .b = 140,
+    .a = 100,
+};
 
 const Color SNAKE_COLOR = {
     .r = 240,
@@ -63,6 +74,9 @@ bool paused = false;
 bool ended = false;
 
 enum direction frameStartDirection;
+
+int score = 0;
+char scoreDisplay[MAX_SCORE_DIGITS + 1];
 ///end Globals////
 
 void spawnNewFruit()
@@ -91,6 +105,9 @@ void initializeGame()
     //reset paused and ended states
     paused = false;
     ended = false;
+
+    //reset the score
+    score = 0;
 }
 
 void cacheFrameStartSnakeDirection()
@@ -218,6 +235,11 @@ void increaseSnakeLength()
     snake[snakeLength - 1].isOn = true;
 }
 
+void increaseScore(int scoreAdded)
+{
+    score += scoreAdded;
+}
+
 
 bool doesSnakeDie(struct snakeCell* snake, int snakeLength)
 {
@@ -234,6 +256,11 @@ bool doesSnakeDie(struct snakeCell* snake, int snakeLength)
     return false;
 }
 
+void drawScore(int score)
+{
+    snprintf(scoreDisplay, MAX_SCORE_DIGITS + 1, "%d", score);
+    DrawText(scoreDisplay, (WINDOW_WIDTH * 0.25), (WINDOW_HEIGHT * 0.25), SCORE_FONT_SIZE, SCORE_FONT_COLOR);
+}
 
 
 int main()
@@ -266,6 +293,7 @@ int main()
         if (doesSnakeEatFruit(snake[0].x, snake[0].y, fruitX, fruitY, FRUIT_RADIUS)) 
         {
             increaseSnakeLength();
+            increaseScore(FRUIT_SCORE);
             spawnNewFruit();
         }
 
@@ -274,6 +302,10 @@ int main()
         {
             ended = true;
         }
+
+        //draw the score
+        drawScore(score);
+
 
         //draw the snake
         drawSnake(snake, snakeLength, SNAKE_COLOR);
