@@ -63,6 +63,8 @@ bool paused = false;
 bool ended = false;
 
 enum direction frameStartDirection;
+
+int score = 0;
 ///end Globals////
 
 void spawnNewFruit()
@@ -91,6 +93,9 @@ void initializeGame()
     //reset paused and ended states
     paused = false;
     ended = false;
+
+    //reset the score
+    score = 0;
 }
 
 void cacheFrameStartSnakeDirection()
