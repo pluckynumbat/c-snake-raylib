@@ -40,6 +40,12 @@ const Color FRUIT_COLOR_0 = {
     .a = 255,
 };
 
+const Color BG_COLOR_0 = RAYWHITE;
+const Color BG_COLOR_1 = DARKGRAY;
+const Color BG_COLOR_2 = DARKPURPLE;
+
+const int BG_COLOR_OPTION_COUNT = 3;
+const Color BG_COLORS[] = {BG_COLOR_0, BG_COLOR_1, BG_COLOR_2};
 ///end Constants////
 
 ///Types////
@@ -77,6 +83,8 @@ enum direction frameStartDirection;
 
 int score = 0;
 char scoreDisplay[MAX_SCORE_DIGITS + 1];
+
+int BGColorIndex = 0;
 ///end Globals////
 
 void spawnNewFruit()
@@ -158,6 +166,12 @@ void acceptInput()
         {
             initializeGame();
         }
+    }
+
+    if (IsKeyPressed(KEY_B))
+    {
+        //change the background color
+        BGColorIndex = (BGColorIndex + 1) % BG_COLOR_OPTION_COUNT;
     }
 }
 
@@ -275,7 +289,7 @@ int main()
     {
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(BG_COLORS[BGColorIndex]);
 
         //cache snake's direction at the beginning of frame
         cacheFrameStartSnakeDirection();
