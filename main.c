@@ -83,6 +83,8 @@ enum direction frameStartDirection;
 
 int score = 0;
 char scoreDisplay[MAX_SCORE_DIGITS + 1];
+
+int BGColorIndex = 0;
 ///end Globals////
 
 void spawnNewFruit()
