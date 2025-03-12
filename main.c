@@ -167,6 +167,12 @@ void acceptInput()
             initializeGame();
         }
     }
+
+    if (IsKeyPressed(KEY_B))
+    {
+        //change the background color
+        BGColorIndex = (BGColorIndex + 1) % BG_COLOR_OPTION_COUNT;
+    }
 }
 
 void moveSnake(struct snakeCell* snake, int speed)
