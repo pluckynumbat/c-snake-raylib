@@ -283,7 +283,7 @@ int main()
     {
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(BG_COLORS[BGColorIndex]);
 
         //cache snake's direction at the beginning of frame
         cacheFrameStartSnakeDirection();
