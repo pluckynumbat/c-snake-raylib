@@ -40,6 +40,10 @@ const Color FRUIT_COLOR_0 = {
     .a = 255,
 };
 
+const Color BG_COLOR_0 = RAYWHITE;
+const Color BG_COLOR_1 = DARKGRAY;
+const Color BG_COLOR_2 = DARKPURPLE;
+
 ///end Constants////
 
 ///Types////
