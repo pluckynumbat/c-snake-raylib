@@ -89,6 +89,11 @@ int score = 0;
 char scoreDisplay[MAX_SCORE_DIGITS + 1];
 
 int BGColorIndex = 0;
+
+bool specialFruitSpawned = false;
+
+int sFruitX = 0;
+int sFruitY = 0;
 ///end Globals////
 
 void spawnNewFruit()
