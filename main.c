@@ -17,6 +17,10 @@ const int MAX_SNAKE_LENGTH = 500;
 const int FRUIT_RADIUS = 4;
 const int FRUIT_SCORE = 1;
 
+const int SPECIAL_FRUIT_RADIUS = 8;
+const int SPECIAL_FRUIT_SCORE = 10;
+const int SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE = 1000;
+
 const int MAX_SCORE_DIGITS = 3;
 const int SCORE_FONT_SIZE = 100;
 const Color SCORE_FONT_COLOR= {
