@@ -296,6 +296,12 @@ bool shouldSpecialFruitSpawn()
     return randomRoll > (SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE - 1);
 }
 
+void spawnSpecialFruit()
+{
+    specialFruitSpawned = true;
+    sFruitX = GetRandomValue(0, WINDOW_WIDTH);
+    sFruitY = GetRandomValue(0, WINDOW_HEIGHT);
+}
 
 
 int main()
