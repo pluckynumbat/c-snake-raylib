@@ -285,6 +285,18 @@ void drawScore(int score)
     DrawText(scoreDisplay, (WINDOW_WIDTH * 0.25), (WINDOW_HEIGHT * 0.25), SCORE_FONT_SIZE, SCORE_FONT_COLOR);
 }
 
+bool shouldSpecialFruitSpawn()
+{
+    if (specialFruitSpawned)
+    {
+        return false;
+    }
+    
+    int randomRoll = GetRandomValue(0, SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE);
+    return randomRoll > (SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE - 1);
+}
+
+
 
 int main()
 {
