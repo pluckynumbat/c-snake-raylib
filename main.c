@@ -17,6 +17,10 @@ const int MAX_SNAKE_LENGTH = 500;
 const int FRUIT_RADIUS = 4;
 const int FRUIT_SCORE = 1;
 
+const int SPECIAL_FRUIT_RADIUS = 8;
+const int SPECIAL_FRUIT_SCORE = 10;
+const int SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE = 1000;
+
 const int MAX_SCORE_DIGITS = 3;
 const int SCORE_FONT_SIZE = 100;
 const Color SCORE_FONT_COLOR= {
@@ -85,6 +89,11 @@ int score = 0;
 char scoreDisplay[MAX_SCORE_DIGITS + 1];
 
 int BGColorIndex = 0;
+
+bool specialFruitSpawned = false;
+
+int sFruitX = 0;
+int sFruitY = 0;
 ///end Globals////
 
 void spawnNewFruit()
@@ -274,6 +283,24 @@ void drawScore(int score)
 {
     snprintf(scoreDisplay, MAX_SCORE_DIGITS + 1, "%d", score);
     DrawText(scoreDisplay, (WINDOW_WIDTH * 0.25), (WINDOW_HEIGHT * 0.25), SCORE_FONT_SIZE, SCORE_FONT_COLOR);
+}
+
+bool shouldSpecialFruitSpawn()
+{
+    if (specialFruitSpawned)
+    {
+        return false;
+    }
+    
+    int randomRoll = GetRandomValue(0, SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE);
+    return randomRoll > (SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE - 1);
+}
+
+void spawnSpecialFruit()
+{
+    specialFruitSpawned = true;
+    sFruitX = GetRandomValue(0, WINDOW_WIDTH);
+    sFruitY = GetRandomValue(0, WINDOW_HEIGHT);
 }
 
 
