@@ -334,9 +334,9 @@ int main()
         //accept input
         acceptInput();
 
-        //move the snake
         if (!paused && !ended)
         {
+            //move the snake
             moveSnake(snake, DEFAULT_SPEED);
 
             //check if a special fruit should spawn, and spawn it if so
