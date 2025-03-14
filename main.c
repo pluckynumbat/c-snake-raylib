@@ -50,6 +50,13 @@ const Color BG_COLOR_2 = DARKPURPLE;
 
 const int BG_COLOR_OPTION_COUNT = 3;
 const Color BG_COLORS[] = {BG_COLOR_0, BG_COLOR_1, BG_COLOR_2};
+
+const Color SPECIAL_FRUIT_COLOR = {
+    .r = 200,
+    .g = 40,
+    .b = 200,
+    .a = 255,
+};
 ///end Constants////
 
 ///Types////
