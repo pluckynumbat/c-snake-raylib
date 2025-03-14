@@ -250,9 +250,9 @@ void drawSnake(struct snakeCell* snake, int snakeLength, Color color)
     }
 }
 
-void drawFruit(int x, int y, Color color)
+void drawFruit(int x, int y, Color color, int radius)
 {
-    DrawCircle(x, y, FRUIT_RADIUS, color);
+    DrawCircle(x, y, radius, color);
 }
 
 bool doesSnakeEatFruit(int snakeX, int snakeY, int fruitX, int fruitY, int fruitRadius)
