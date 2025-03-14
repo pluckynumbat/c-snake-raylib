@@ -354,6 +354,14 @@ int main()
             spawnNewFruit();
         }
 
+        //check if the snake eats the speical fruit (if spawned)
+        if (specialFruitSpawned && doesSnakeEatFruit(snake[0].x, snake[0].y, sFruitX, sFruitY, SPECIAL_FRUIT_RADIUS))
+        {
+            increaseSnakeLength();
+            increaseScore(SPECIAL_FRUIT_SCORE);
+            specialFruitSpawned = false;
+        }
+
         //check if the snake dies
         if (doesSnakeDie(snake, snakeLength))
         {
