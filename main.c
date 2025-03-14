@@ -132,6 +132,9 @@ void initializeGame()
 
     //reset the score
     score = 0;
+
+    //reset special fruit spawn
+    specialFruitSpawned = false;
 }
 
 void cacheFrameStartSnakeDirection()
