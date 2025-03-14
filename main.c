@@ -338,6 +338,12 @@ int main()
         if (!paused && !ended)
         {
             moveSnake(snake, DEFAULT_SPEED);
+
+            //check if a special fruit should spawn, and spawn it if so
+            if (shouldSpecialFruitSpawn())
+            {
+                spawnSpecialFruit();
+            }
         }
 
         //check if the snake eats the fruit
