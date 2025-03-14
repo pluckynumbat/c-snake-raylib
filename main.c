@@ -50,6 +50,13 @@ const Color BG_COLOR_2 = DARKPURPLE;
 
 const int BG_COLOR_OPTION_COUNT = 3;
 const Color BG_COLORS[] = {BG_COLOR_0, BG_COLOR_1, BG_COLOR_2};
+
+const Color SPECIAL_FRUIT_COLOR = {
+    .r = 200,
+    .g = 40,
+    .b = 200,
+    .a = 255,
+};
 ///end Constants////
 
 ///Types////
@@ -125,6 +132,9 @@ void initializeGame()
 
     //reset the score
     score = 0;
+
+    //reset special fruit spawn
+    specialFruitSpawned = false;
 }
 
 void cacheFrameStartSnakeDirection()
@@ -240,9 +250,9 @@ void drawSnake(struct snakeCell* snake, int snakeLength, Color color)
     }
 }
 
-void drawFruit(int x, int y, Color color)
+void drawFruit(int x, int y, Color color, int radius)
 {
-    DrawCircle(x, y, FRUIT_RADIUS, color);
+    DrawCircle(x, y, radius, color);
 }
 
 bool doesSnakeEatFruit(int snakeX, int snakeY, int fruitX, int fruitY, int fruitRadius)
@@ -324,10 +334,16 @@ int main()
         //accept input
         acceptInput();
 
-        //move the snake
         if (!paused && !ended)
         {
+            //move the snake
             moveSnake(snake, DEFAULT_SPEED);
+
+            //check if a special fruit should spawn, and spawn it if so
+            if (shouldSpecialFruitSpawn())
+            {
+                spawnSpecialFruit();
+            }
         }
 
         //check if the snake eats the fruit
@@ -336,6 +352,14 @@ int main()
             increaseSnakeLength();
             increaseScore(FRUIT_SCORE);
             spawnNewFruit();
+        }
+
+        //check if the snake eats the speical fruit (if spawned)
+        if (specialFruitSpawned && doesSnakeEatFruit(snake[0].x, snake[0].y, sFruitX, sFruitY, SPECIAL_FRUIT_RADIUS))
+        {
+            increaseSnakeLength();
+            increaseScore(SPECIAL_FRUIT_SCORE);
+            specialFruitSpawned = false;
         }
 
         //check if the snake dies
@@ -352,7 +376,13 @@ int main()
         drawSnake(snake, snakeLength, SNAKE_COLOR);
 
         //draw the fruit
-        drawFruit(fruitX, fruitY, FRUIT_COLOR_0);
+        drawFruit(fruitX, fruitY, FRUIT_COLOR_0, FRUIT_RADIUS);
+
+        //if a special fruit is spawned, draw it
+        if (specialFruitSpawned)
+        {
+            drawFruit(sFruitX, sFruitY, SPECIAL_FRUIT_COLOR, SPECIAL_FRUIT_RADIUS);
+        }
 
         EndDrawing();
     }
