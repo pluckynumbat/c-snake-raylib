@@ -378,7 +378,7 @@ int main()
         drawSnake(snake, snakeLength, SNAKE_COLOR);
 
         //draw the fruit
-        drawFruit(fruitX, fruitY, FRUIT_COLOR_0, FRUIT_RADIUS);
+        drawFruit(fruitX, fruitY, FRUIT_COLORS[fruitColorIndex], FRUIT_RADIUS);
 
         //if a special fruit is spawned, draw it
         if (specialFruitSpawned)
