@@ -87,6 +87,8 @@ int snakeLength = 0;
 int fruitX = 0;
 int fruitY = 0;
 
+int fruitColorIndex = 0;
+
 bool paused = false;
 bool ended = false;
 
