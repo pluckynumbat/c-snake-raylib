@@ -189,6 +189,12 @@ void acceptInput()
         }
     }
 
+    if (IsKeyPressed(KEY_V))
+    {
+        //change the fruit color
+        fruitColorIndex = (fruitColorIndex + 1) % FRUIT_COLOR_OPTION_COUNT;
+    }
+
     if (IsKeyPressed(KEY_B))
     {
         //change the background color
