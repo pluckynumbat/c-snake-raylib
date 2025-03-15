@@ -37,12 +37,12 @@ const Color SNAKE_COLOR = {
     .a = 255,
 };
 
-const Color FRUIT_COLOR_0 = {
-    .r = 220,
-    .g = 20,
-    .b = 0,
-    .a = 255,
-};
+const Color FRUIT_COLOR_0 = {.r = 220, .g = 20,  .b = 0,   .a = 255,};
+const Color FRUIT_COLOR_1 = {.r = 120, .g = 220, .b = 160, .a = 255,};
+const Color FRUIT_COLOR_2 = {.r = 240, .g = 160, .b = 40,  .a = 255,};
+
+const int FRUIT_COLOR_OPTION_COUNT = 3;
+const Color FRUIT_COLORS[] = {FRUIT_COLOR_0, FRUIT_COLOR_1, FRUIT_COLOR_2};
 
 const Color BG_COLOR_0 = RAYWHITE;
 const Color BG_COLOR_1 = DARKGRAY;
@@ -86,6 +86,8 @@ int snakeLength = 0;
 
 int fruitX = 0;
 int fruitY = 0;
+
+int fruitColorIndex = 0;
 
 bool paused = false;
 bool ended = false;
@@ -185,6 +187,12 @@ void acceptInput()
         {
             initializeGame();
         }
+    }
+
+    if (IsKeyPressed(KEY_V))
+    {
+        //change the fruit color
+        fruitColorIndex = (fruitColorIndex + 1) % FRUIT_COLOR_OPTION_COUNT;
     }
 
     if (IsKeyPressed(KEY_B))
@@ -376,7 +384,7 @@ int main()
         drawSnake(snake, snakeLength, SNAKE_COLOR);
 
         //draw the fruit
-        drawFruit(fruitX, fruitY, FRUIT_COLOR_0, FRUIT_RADIUS);
+        drawFruit(fruitX, fruitY, FRUIT_COLORS[fruitColorIndex], FRUIT_RADIUS);
 
         //if a special fruit is spawned, draw it
         if (specialFruitSpawned)
