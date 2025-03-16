@@ -388,7 +388,7 @@ int main()
 
 
         //draw the snake
-        drawSnake(snake, snakeLength, SNAKE_COLOR);
+        drawSnake(snake, snakeLength, SNAKE_COLORS[snakeColorIndex]);
 
         //draw the fruit
         drawFruit(fruitX, fruitY, FRUIT_COLORS[fruitColorIndex], FRUIT_RADIUS);
