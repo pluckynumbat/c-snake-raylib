@@ -83,6 +83,7 @@ int startY = WINDOW_HEIGHT / 2;
 
 struct snakeCell snake[MAX_SNAKE_LENGTH];
 int snakeLength = 0;
+int snakeColorIndex = 0;
 
 int fruitX = 0;
 int fruitY = 0;
