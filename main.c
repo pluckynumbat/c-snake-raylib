@@ -30,12 +30,12 @@ const Color SCORE_FONT_COLOR= {
     .a = 100,
 };
 
-const Color SNAKE_COLOR = {
-    .r = 240,
-    .g = 140,
-    .b = 0,
-    .a = 255,
-};
+const Color SNAKE_COLOR_0 = {.r = 240, .g = 140, .b = 0,   .a = 255,};
+const Color SNAKE_COLOR_1 = {.r = 140, .g = 240, .b = 0,   .a = 255,};
+const Color SNAKE_COLOR_2 = {.r = 60,  .g = 140, .b = 240, .a = 255,};
+
+const int SNAKE_COLOR_OPTION_COUNT = 3;
+const Color SNAKE_COLORS[] = {SNAKE_COLOR_0, SNAKE_COLOR_1, SNAKE_COLOR_2};
 
 const Color FRUIT_COLOR_0 = {.r = 220, .g = 20,  .b = 0,   .a = 255,};
 const Color FRUIT_COLOR_1 = {.r = 120, .g = 220, .b = 160, .a = 255,};
