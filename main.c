@@ -190,6 +190,12 @@ void acceptInput()
         }
     }
 
+    if (IsKeyPressed(KEY_C))
+    {
+        //change the snake color
+        snakeColorIndex = (snakeColorIndex + 1) % SNAKE_COLOR_OPTION_COUNT;
+    }
+
     if (IsKeyPressed(KEY_V))
     {
         //change the fruit color
