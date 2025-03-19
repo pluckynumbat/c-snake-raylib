@@ -23,12 +23,7 @@ const int SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE = 1000;
 
 const int MAX_SCORE_DIGITS = 3;
 const int SCORE_FONT_SIZE = 100;
-const Color SCORE_FONT_COLOR= {
-    .r = 140,
-    .g = 140,
-    .b = 140,
-    .a = 100,
-};
+const Color SCORE_FONT_COLOR= {.r = 140,.g = 140,.b = 140,.a = 100,;
 
 const Color SNAKE_COLOR_0 = {.r = 240, .g = 140, .b = 0,   .a = 255,};
 const Color SNAKE_COLOR_1 = {.r = 140, .g = 240, .b = 0,   .a = 255,};
@@ -52,12 +47,7 @@ const Color BG_COLOR_2 = DARKPURPLE;
 const int BG_COLOR_OPTION_COUNT = 3;
 const Color BG_COLORS[] = {BG_COLOR_0, BG_COLOR_1, BG_COLOR_2};
 
-const Color SPECIAL_FRUIT_COLOR = {
-    .r = 200,
-    .g = 40,
-    .b = 200,
-    .a = 255,
-};
+const Color SPECIAL_FRUIT_COLOR = {.r = 200,.g = 40,.b = 200,.a = 255,};
 ///end Constants////
 
 ///Types////
