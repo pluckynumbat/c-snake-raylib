@@ -33,6 +33,7 @@ const Color SCORE_FONT_COLOR= {
 const Color SNAKE_COLOR_0 = {.r = 240, .g = 140, .b = 0,   .a = 255,};
 const Color SNAKE_COLOR_1 = {.r = 140, .g = 240, .b = 0,   .a = 255,};
 const Color SNAKE_COLOR_2 = {.r = 60,  .g = 140, .b = 240, .a = 255,};
+const Color SNAKE_COLOR_DEAD = {.r = 140,  .g = 140, .b = 140, .a = 255,};
 
 const int SNAKE_COLOR_OPTION_COUNT = 3;
 const Color SNAKE_COLORS[] = {SNAKE_COLOR_0, SNAKE_COLOR_1, SNAKE_COLOR_2};
