@@ -338,6 +338,23 @@ void shadeSnakeCell(Color* currentColor, Color baseColor, int varyingParam, int 
     }
 }
 
+void drawSnakeV2(struct snakeCell* snake, int snakeLength, int colorIndex, bool isDead)
+{
+    if (isDead)
+    {
+        drawSnake(snake, snakeLength, SNAKE_COLOR_DEAD);
+        return;
+    }
+
+    snakeCellColor = SNAKE_COLORS[colorIndex];
+    //draw the snake
+    for (int i = 0; i < snakeLength; i++)
+    {
+        shadeSnakeCell(&snakeCellColor, SNAKE_COLORS[colorIndex], colorIndex, Lerp(0, 255, i * 1.0f / snakeLength));
+        DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, snakeCellColor);
+    }
+}
+
 
 int main()
 {
