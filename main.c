@@ -24,9 +24,9 @@ const int MAX_SCORE_DIGITS = 3;
 const int SCORE_FONT_SIZE = 100;
 const Color SCORE_FONT_COLOR= {.r = 140,.g = 140,.b = 140,.a = 100,};
 
-const Color SNAKE_COLOR_0 = {.r = 240, .g = 140, .b = 0,   .a = 255,};
-const Color SNAKE_COLOR_1 = {.r = 140, .g = 240, .b = 0,   .a = 255,};
-const Color SNAKE_COLOR_2 = {.r = 60,  .g = 140, .b = 240, .a = 255,};
+const Color SNAKE_COLOR_0 = {.r =   0, .g = 240, .b = 140, .a = 255,};
+const Color SNAKE_COLOR_1 = {.r = 140, .g =   0, .b = 240, .a = 255,};
+const Color SNAKE_COLOR_2 = {.r = 240, .g = 140, .b =   0, .a = 255,};
 const Color SNAKE_COLOR_DEAD = {.r = 140,  .g = 140, .b = 140, .a = 255,};
 
 const int SNAKE_COLOR_OPTION_COUNT = 3;
