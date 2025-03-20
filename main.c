@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include <stdio.h>
+#include "raymath.h"
 
 ////Constants////
 const int WINDOW_WIDTH = 200;
