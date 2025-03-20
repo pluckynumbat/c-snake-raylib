@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 ////Constants////
-
 const int WINDOW_WIDTH = 200;
 const int WINDOW_HEIGHT = 200;
 const char* GAME_TITLE = "C-Snake";
@@ -23,7 +22,7 @@ const int SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE = 1000;
 
 const int MAX_SCORE_DIGITS = 3;
 const int SCORE_FONT_SIZE = 100;
-const Color SCORE_FONT_COLOR= {.r = 140,.g = 140,.b = 140,.a = 100,;
+const Color SCORE_FONT_COLOR= {.r = 140,.g = 140,.b = 140,.a = 100,};
 
 const Color SNAKE_COLOR_0 = {.r = 240, .g = 140, .b = 0,   .a = 255,};
 const Color SNAKE_COLOR_1 = {.r = 140, .g = 240, .b = 0,   .a = 255,};
