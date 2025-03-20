@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include <stdio.h>
+#include "raymath.h"
 
 ////Constants////
 const int WINDOW_WIDTH = 200;
@@ -24,9 +25,9 @@ const int MAX_SCORE_DIGITS = 3;
 const int SCORE_FONT_SIZE = 100;
 const Color SCORE_FONT_COLOR= {.r = 140,.g = 140,.b = 140,.a = 100,};
 
-const Color SNAKE_COLOR_0 = {.r = 240, .g = 140, .b = 0,   .a = 255,};
-const Color SNAKE_COLOR_1 = {.r = 140, .g = 240, .b = 0,   .a = 255,};
-const Color SNAKE_COLOR_2 = {.r = 60,  .g = 140, .b = 240, .a = 255,};
+const Color SNAKE_COLOR_0 = {.r =   0, .g = 240, .b = 140, .a = 255,};
+const Color SNAKE_COLOR_1 = {.r = 140, .g =   0, .b = 240, .a = 255,};
+const Color SNAKE_COLOR_2 = {.r = 240, .g = 140, .b =   0, .a = 255,};
 const Color SNAKE_COLOR_DEAD = {.r = 140,  .g = 140, .b = 140, .a = 255,};
 
 const int SNAKE_COLOR_OPTION_COUNT = 3;
@@ -94,6 +95,8 @@ bool specialFruitSpawned = false;
 
 int sFruitX = 0;
 int sFruitY = 0;
+
+Color snakeCellColor;
 ///end Globals////
 
 void spawnNewFruit()
@@ -318,6 +321,41 @@ void spawnSpecialFruit()
     sFruitY = GetRandomValue(0, WINDOW_HEIGHT);
 }
 
+void shadeSnakeCell(Color* currentColor, Color baseColor, int varyingParam, int varyStep)
+{
+    switch (varyingParam)
+    {
+    case 0:
+        currentColor->r = baseColor.r + varyStep;
+        break;
+
+    case 1:
+        currentColor->g = baseColor.g + varyStep;
+        break;
+
+    case 2:
+        currentColor->b = baseColor.b + varyStep;
+        break;    
+    }
+}
+
+void drawSnakeV2(struct snakeCell* snake, int snakeLength, int colorIndex, bool isDead)
+{
+    if (isDead)
+    {
+        drawSnake(snake, snakeLength, SNAKE_COLOR_DEAD);
+        return;
+    }
+
+    snakeCellColor = SNAKE_COLORS[colorIndex];
+    //draw the snake
+    for (int i = 0; i < snakeLength; i++)
+    {
+        shadeSnakeCell(&snakeCellColor, SNAKE_COLORS[colorIndex], colorIndex, Lerp(0, 255, i * 1.0f / snakeLength));
+        DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, snakeCellColor);
+    }
+}
+
 
 int main()
 {
@@ -376,9 +414,8 @@ int main()
         //draw the score
         drawScore(score);
 
-
-        //draw the snake
-        drawSnake(snake, snakeLength, ended ? SNAKE_COLOR_DEAD : SNAKE_COLORS[snakeColorIndex]);
+        //draw the snake V2
+        drawSnakeV2(snake, snakeLength, snakeColorIndex, ended);
 
         //draw the fruit
         drawFruit(fruitX, fruitY, FRUIT_COLORS[fruitColorIndex], FRUIT_RADIUS);
