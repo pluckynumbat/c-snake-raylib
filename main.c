@@ -320,6 +320,24 @@ void spawnSpecialFruit()
     sFruitY = GetRandomValue(0, WINDOW_HEIGHT);
 }
 
+void shadeSnakeCell(Color* currentColor, Color baseColor, int varyingParam, int varyStep)
+{
+    switch (varyingParam)
+    {
+    case 0:
+        currentColor->r = baseColor.r + varyStep;
+        break;
+
+    case 1:
+        currentColor->g = baseColor.g + varyStep;
+        break;
+
+    case 2:
+        currentColor->b = baseColor.b + varyStep;
+        break;    
+    }
+}
+
 
 int main()
 {
