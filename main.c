@@ -413,9 +413,8 @@ int main()
         //draw the score
         drawScore(score);
 
-
-        //draw the snake
-        drawSnake(snake, snakeLength, ended ? SNAKE_COLOR_DEAD : SNAKE_COLORS[snakeColorIndex]);
+        //draw the snake V2
+        drawSnakeV2(snake, snakeLength, snakeColorIndex, ended);
 
         //draw the fruit
         drawFruit(fruitX, fruitY, FRUIT_COLORS[fruitColorIndex], FRUIT_RADIUS);
