@@ -6,3 +6,6 @@ build
 
 # ignore the app folder where the binaries are stored
 app
+
+# ignore the auto-generated sublime-workspace file
+c-snake-raylib.sublime-workspace
