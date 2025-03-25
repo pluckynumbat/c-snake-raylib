@@ -47,7 +47,12 @@ const Color BG_COLOR_2 = DARKPURPLE;
 const int BG_COLOR_OPTION_COUNT = 3;
 const Color BG_COLORS[] = {BG_COLOR_0, BG_COLOR_1, BG_COLOR_2};
 
-const Color SPECIAL_FRUIT_COLOR = {.r = 200,.g = 40,.b = 200,.a = 255,};
+const Color SPECIAL_FRUIT_COLOR_0 = {.r = 200, .g = 40,  .b = 200, .a = 255,};
+const Color SPECIAL_FRUIT_COLOR_1 = {.r =  40, .g = 200, .b = 200, .a = 255,};
+const Color SPECIAL_FRUIT_COLOR_2 = {.r = 200, .g = 200, .b = 40,  .a = 255,};
+
+const int SPECIAL_FRUIT_COLOR_OPTION_COUNT = 3;
+const Color SPECIAL_FRUIT_COLORS[] = {SPECIAL_FRUIT_COLOR_0, SPECIAL_FRUIT_COLOR_1, SPECIAL_FRUIT_COLOR_2};
 ///end Constants////
 
 ///Types////
@@ -95,6 +100,8 @@ bool specialFruitSpawned = false;
 
 int sFruitX = 0;
 int sFruitY = 0;
+
+int specialFruitColorIndex = 0;
 
 Color snakeCellColor;
 ///end Globals////
@@ -193,6 +200,9 @@ void acceptInput()
     {
         //change the fruit color
         fruitColorIndex = (fruitColorIndex + 1) % FRUIT_COLOR_OPTION_COUNT;
+
+        //change the special fruit color
+        specialFruitColorIndex = (specialFruitColorIndex + 1) % SPECIAL_FRUIT_COLOR_OPTION_COUNT;
     }
 
     if (IsKeyPressed(KEY_B))
@@ -423,7 +433,7 @@ int main()
         //if a special fruit is spawned, draw it
         if (specialFruitSpawned)
         {
-            drawFruit(sFruitX, sFruitY, SPECIAL_FRUIT_COLOR, SPECIAL_FRUIT_RADIUS);
+            drawFruit(sFruitX, sFruitY, SPECIAL_FRUIT_COLORS[specialFruitColorIndex], SPECIAL_FRUIT_RADIUS);
         }
 
         EndDrawing();
