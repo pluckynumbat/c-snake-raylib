@@ -433,7 +433,7 @@ int main()
         //if a special fruit is spawned, draw it
         if (specialFruitSpawned)
         {
-            drawFruit(sFruitX, sFruitY, SPECIAL_FRUIT_COLOR, SPECIAL_FRUIT_RADIUS);
+            drawFruit(sFruitX, sFruitY, SPECIAL_FRUIT_COLORS[specialFruitColorIndex], SPECIAL_FRUIT_RADIUS);
         }
 
         EndDrawing();
