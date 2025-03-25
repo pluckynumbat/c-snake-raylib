@@ -200,6 +200,9 @@ void acceptInput()
     {
         //change the fruit color
         fruitColorIndex = (fruitColorIndex + 1) % FRUIT_COLOR_OPTION_COUNT;
+
+        //change the special fruit color
+        specialFruitColorIndex = (specialFruitColorIndex + 1) % SPECIAL_FRUIT_COLOR_OPTION_COUNT;
     }
 
     if (IsKeyPressed(KEY_B))
