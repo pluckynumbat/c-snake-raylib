@@ -101,6 +101,8 @@ bool specialFruitSpawned = false;
 int sFruitX = 0;
 int sFruitY = 0;
 
+int specialFruitColorIndex = 0;
+
 Color snakeCellColor;
 ///end Globals////
 
