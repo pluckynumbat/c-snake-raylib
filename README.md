@@ -5,6 +5,8 @@ This repository is for a snake game written in C using raylib!
 
 More information will be added here in the future
 
+# Setup (Building from source)
+
 # Acknowledgements
 This project uses raylib, a library created to help with game programming! \
 Here are some links with more information about raylib: \
