@@ -11,12 +11,18 @@ More information will be added here in the future
  - Prerequisities: You will need CMake installed on your machine
  - Step 1: clone this repo
  - Step 2: in the terminal, go to the root directory of where the project is cloned
-  - Step 3: Pick an option from below and proceed with the steps in it
+ - Step 3: Pick an option from below and proceed with the steps in it
 
 ### Option 1 (manually entering build steps)
  - Step 4: type 'cmake -B build', hit enter
  - Step 5: type 'cmake --build build', hit enter
  - Step 6: type './build/c_snake', hit enter
+
+### OR
+
+### Option 2 (single command bash script)
+ - Step 4: type 'sh build.sh', hit enter
+
 
 # Acknowledgements
 This project uses raylib, a library created to help with game programming! \
