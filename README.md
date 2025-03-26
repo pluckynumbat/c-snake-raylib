@@ -7,6 +7,11 @@ More information will be added here in the future
 
 # Setup (Building from source)
 
+## From the terminal on MacOS
+ - Prerequisities: You will need CMake installed on your machine
+ - Step 1: clone this repo
+ - Step 2: in the terminal, go to the root directory of where the project is cloned
+
 # Acknowledgements
 This project uses raylib, a library created to help with game programming! \
 Here are some links with more information about raylib: \
