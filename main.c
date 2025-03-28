@@ -4,9 +4,6 @@
 #include "csnake.h"
 
 ////Constants////
-const int WINDOW_WIDTH = 200;
-const int WINDOW_HEIGHT = 200;
-const char* GAME_TITLE = "C-Snake";
 
 const int SNAKE_CELL_RADIUS = 4;
 const int DEFAULT_SNAKE_CELL_DIFF = 4;
