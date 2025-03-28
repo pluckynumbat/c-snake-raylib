@@ -36,5 +36,20 @@ const Color FRUIT_COLOR_2 = {.r = 240, .g = 160, .b = 40,  .a = 255,};
 const int FRUIT_COLOR_OPTION_COUNT = 3;
 const Color FRUIT_COLORS[] = {FRUIT_COLOR_0, FRUIT_COLOR_1, FRUIT_COLOR_2};
 
+// Special fruit constants
+const int SPECIAL_FRUIT_RADIUS = 8;
+const int SPECIAL_FRUIT_SCORE = 10;
+const int SPECIAL_FRUIT_ONE_IN_HOW_MANY_CHANCE = 1000;
+
+// Special fruit color constants
+const Color SPECIAL_FRUIT_COLOR_0 = {.r = 200, .g = 40,  .b = 200, .a = 255,};
+const Color SPECIAL_FRUIT_COLOR_1 = {.r =  40, .g = 200, .b = 200, .a = 255,};
+const Color SPECIAL_FRUIT_COLOR_2 = {.r = 200, .g = 200, .b = 40,  .a = 255,};
+
+const int SPECIAL_FRUIT_COLOR_OPTION_COUNT = 3;
+const Color SPECIAL_FRUIT_COLORS[] = {SPECIAL_FRUIT_COLOR_0, SPECIAL_FRUIT_COLOR_1, SPECIAL_FRUIT_COLOR_2};
+///end Constants////
+
+
 
 #endif
