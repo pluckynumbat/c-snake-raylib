@@ -7,10 +7,6 @@
 
 
 
-const int MAX_SCORE_DIGITS = 3;
-const int SCORE_FONT_SIZE = 100;
-const Color SCORE_FONT_COLOR= {.r = 140,.g = 140,.b = 140,.a = 100,};
-
 
 const Color BG_COLOR_0 = RAYWHITE;
 const Color BG_COLOR_1 = DARKGRAY;

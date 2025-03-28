@@ -3,7 +3,7 @@
 
 ////Constants////
 
-// Related to the window
+// Window constants
 const int WINDOW_WIDTH = 200;
 const int WINDOW_HEIGHT = 200;
 const char* GAME_TITLE = "C-Snake";
@@ -48,8 +48,11 @@ const Color SPECIAL_FRUIT_COLOR_2 = {.r = 200, .g = 200, .b = 40,  .a = 255,};
 
 const int SPECIAL_FRUIT_COLOR_OPTION_COUNT = 3;
 const Color SPECIAL_FRUIT_COLORS[] = {SPECIAL_FRUIT_COLOR_0, SPECIAL_FRUIT_COLOR_1, SPECIAL_FRUIT_COLOR_2};
+
+// Score constants
+const int MAX_SCORE_DIGITS = 3;
+const int SCORE_FONT_SIZE = 100;
+const Color SCORE_FONT_COLOR= {.r = 140,.g = 140,.b = 140,.a = 100,};
 ///end Constants////
-
-
 
 #endif
