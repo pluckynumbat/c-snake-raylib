@@ -3,19 +3,6 @@
 #include "raymath.h"
 #include "csnake.h"
 
-////Constants////
-
-
-
-
-const Color BG_COLOR_0 = RAYWHITE;
-const Color BG_COLOR_1 = DARKGRAY;
-const Color BG_COLOR_2 = DARKPURPLE;
-
-const int BG_COLOR_OPTION_COUNT = 3;
-const Color BG_COLORS[] = {BG_COLOR_0, BG_COLOR_1, BG_COLOR_2};
-
-
 ///Types////
 enum direction
 {

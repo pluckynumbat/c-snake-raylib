@@ -53,6 +53,15 @@ const Color SPECIAL_FRUIT_COLORS[] = {SPECIAL_FRUIT_COLOR_0, SPECIAL_FRUIT_COLOR
 const int MAX_SCORE_DIGITS = 3;
 const int SCORE_FONT_SIZE = 100;
 const Color SCORE_FONT_COLOR= {.r = 140,.g = 140,.b = 140,.a = 100,};
+
+// Background Color constants
+const Color BG_COLOR_0 = RAYWHITE;
+const Color BG_COLOR_1 = DARKGRAY;
+const Color BG_COLOR_2 = DARKPURPLE;
+
+const int BG_COLOR_OPTION_COUNT = 3;
+const Color BG_COLORS[] = {BG_COLOR_0, BG_COLOR_1, BG_COLOR_2};
+
 ///end Constants////
 
 #endif
