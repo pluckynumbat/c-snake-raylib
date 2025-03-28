@@ -4,14 +4,6 @@
 #include "csnake.h"
 
 ////Constants////
-
-const int SNAKE_CELL_RADIUS = 4;
-const int DEFAULT_SNAKE_CELL_DIFF = 4;
-const int DEFAULT_SPEED = 4;
-
-const int STARTING_SNAKE_LENGTH = 10;
-const int MAX_SNAKE_LENGTH = 500;
-
 const int FRUIT_RADIUS = 4;
 const int FRUIT_SCORE = 1;
 
