@@ -12,7 +12,7 @@ const char* GAME_TITLE = "C-Snake";
 const int SNAKE_CELL_RADIUS = 4;
 const int DEFAULT_SNAKE_CELL_DIFF = 4;
 const int DEFAULT_SPEED = 4;
-const int STARTING_SNAKE_LENGTH = 10;
+const int STARTING_SNAKE_LENGTH = 8;
 const int MAX_SNAKE_LENGTH = 500;
 
 // Snake color constants
@@ -23,6 +23,10 @@ const Color SNAKE_COLOR_DEAD = {.r = 140,  .g = 140, .b = 140, .a = 255,};
 
 const int SNAKE_COLOR_OPTION_COUNT = 3;
 const Color SNAKE_COLORS[] = {SNAKE_COLOR_0, SNAKE_COLOR_1, SNAKE_COLOR_2};
+
+//Snake pattern constants
+const int SNAKE_PATTERN_DISTINCT_COLORS = 6;
+const int SNAKE_PATTERN_VARYSTEP_MULTIPLIER = 50;
 
 // Fruit constants
 const int FRUIT_RADIUS = 4;
