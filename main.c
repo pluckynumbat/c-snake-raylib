@@ -309,7 +309,7 @@ void drawSnakeV2(struct snakeCell* snake, int snakeLength, int colorIndex, bool 
     //draw the snake
     for (int i = 0; i < snakeLength; i++)
     {
-        shadeSnakeCell(&snakeCellColor, SNAKE_COLORS[colorIndex], colorIndex, (i % 5) * 50);
+        shadeSnakeCell(&snakeCellColor, SNAKE_COLORS[colorIndex], colorIndex, (i % SNAKE_PATTERN_DISTINCT_COLORS) * 50);
         DrawCircle(snake[i].x, snake[i].y, SNAKE_CELL_RADIUS, snakeCellColor);
     }
 }

@@ -24,6 +24,9 @@ const Color SNAKE_COLOR_DEAD = {.r = 140,  .g = 140, .b = 140, .a = 255,};
 const int SNAKE_COLOR_OPTION_COUNT = 3;
 const Color SNAKE_COLORS[] = {SNAKE_COLOR_0, SNAKE_COLOR_1, SNAKE_COLOR_2};
 
+//Snake pattern constants
+const int SNAKE_PATTERN_DISTINCT_COLORS = 5;
+
 // Fruit constants
 const int FRUIT_RADIUS = 4;
 const int FRUIT_SCORE = 1;
