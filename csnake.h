@@ -26,6 +26,7 @@ const Color SNAKE_COLORS[] = {SNAKE_COLOR_0, SNAKE_COLOR_1, SNAKE_COLOR_2};
 
 //Snake pattern constants
 const int SNAKE_PATTERN_DISTINCT_COLORS = 5;
+const int SNAKE_PATTERN_VARYSTEP_MULTIPLIER = 50;
 
 // Fruit constants
 const int FRUIT_RADIUS = 4;
