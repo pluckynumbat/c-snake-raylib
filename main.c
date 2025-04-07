@@ -97,7 +97,7 @@ void cacheFrameStartSnakeDirection()
 
 void acceptInput()
 {
-    if (IsKeyPressed(KEY_W))
+    if (IsKeyPressed(KEY_W) || IsGamepadButtonDown(gamepad, GAMEPAD_BUTTON_LEFT_FACE_UP))
     {
         if (snake[0].dir != south && snake[0].dir != north)
         {
