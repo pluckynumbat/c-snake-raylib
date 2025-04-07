@@ -52,6 +52,8 @@ int sFruitY = 0;
 int specialFruitColorIndex = 0;
 
 Color snakeCellColor;
+
+int gamepad = 0;
 ///end Globals////
 
 void spawnNewFruit()
@@ -95,7 +97,7 @@ void cacheFrameStartSnakeDirection()
 
 void acceptInput()
 {
-    if (IsKeyPressed(KEY_W))
+    if (IsKeyPressed(KEY_W) || IsGamepadButtonPressed(gamepad, GAMEPAD_BUTTON_LEFT_FACE_UP))
     {
         if (snake[0].dir != south && snake[0].dir != north)
         {
@@ -103,7 +105,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_S))
+    if (IsKeyPressed(KEY_S) || IsGamepadButtonPressed(gamepad, GAMEPAD_BUTTON_LEFT_FACE_DOWN))
     {
         if (snake[0].dir != south && snake[0].dir != north)
         {
@@ -111,7 +113,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_A) && frameStartDirection != east)
+    if ((IsKeyPressed(KEY_A) || IsGamepadButtonPressed(gamepad, GAMEPAD_BUTTON_LEFT_FACE_LEFT)) && frameStartDirection != east)
     {
         if (snake[0].dir != east && snake[0].dir != west)
         {
@@ -119,7 +121,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_D) && frameStartDirection != west)
+    if ((IsKeyPressed(KEY_D) || IsGamepadButtonPressed(gamepad, GAMEPAD_BUTTON_LEFT_FACE_RIGHT)) && frameStartDirection != west)
     {
         if (snake[0].dir != east && snake[0].dir != west)
         {
@@ -127,7 +129,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_SPACE))
+    if (IsKeyPressed(KEY_SPACE) || IsGamepadButtonPressed(gamepad, GAMEPAD_BUTTON_MIDDLE_RIGHT))
     {
         paused = !paused;
 
