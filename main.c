@@ -105,7 +105,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_S))
+    if (IsKeyPressed(KEY_S) || IsGamepadButtonDown(gamepad, GAMEPAD_BUTTON_LEFT_FACE_DOWN))
     {
         if (snake[0].dir != south && snake[0].dir != north)
         {
@@ -113,7 +113,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_A) && frameStartDirection != east)
+    if ((IsKeyPressed(KEY_A) || IsGamepadButtonDown(gamepad, GAMEPAD_BUTTON_LEFT_FACE_LEFT)) && frameStartDirection != east)
     {
         if (snake[0].dir != east && snake[0].dir != west)
         {
@@ -121,7 +121,7 @@ void acceptInput()
         }
     }
 
-    if (IsKeyPressed(KEY_D) && frameStartDirection != west)
+    if ((IsKeyPressed(KEY_D) || IsGamepadButtonDown(gamepad, GAMEPAD_BUTTON_LEFT_FACE_RIGHT)) && frameStartDirection != west)
     {
         if (snake[0].dir != east && snake[0].dir != west)
         {
