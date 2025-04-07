@@ -52,6 +52,8 @@ int sFruitY = 0;
 int specialFruitColorIndex = 0;
 
 Color snakeCellColor;
+
+int gamepad = 0;
 ///end Globals////
 
 void spawnNewFruit()
